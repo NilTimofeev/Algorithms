@@ -44,7 +44,7 @@ def not_sieve(find_num):
 
 def not_sieve_2(find_num):
     """
-    В этом варианте отсеем четные числа и кратные 5. Видим многократный прирост скорости
+    В этом варианте отсеем четные числа и кратные 5 (работает для чисел больше 10). Видим многократный прирост скорости
 
     python -m timeit -n 1000 -s "import not_sieve" "not_sieve.not_sieve_2(100)"
     1000 loops, best of 5: 254 usec per loop
@@ -65,8 +65,10 @@ def not_sieve_2(find_num):
     while True:
         val += 1
         for j in range(3, val // 2 + 1):
-            if val % 2 == 0 or val % 5 == 0:
-                continue
+            if val >= 10:
+                if val % 2 == 0 or val % 5 == 0:
+                    prime_num = False
+                    continue
             if val % j == 0:
                 prime_num = False
                 break
@@ -81,6 +83,5 @@ def not_sieve_2(find_num):
 """
 Вывод.
 Скорость выполнения алгоритма упирается в количество вычислений. В данном примере отсеяли очевидные
-вычисления. Уверен, можно сократить вычисления еще больше. Знания математики помогли бы. Прошу написать свои идеи 
-в замечаниях.
+вычисления.
 """
