@@ -3,6 +3,10 @@
 
 
 def count_num_2():
+    """
+    python -m timeit -n 1000 -s "import less4_1" "less4_1.count_num_2()"
+    1000 loops, best of 5: 1.21 usec per loop
+    """
     el = '3'
     text = '233 67 8 330 13'
     text = ''.join(text.split())
@@ -10,13 +14,14 @@ def count_num_2():
     for i in range(len(text)):
         if text[i] == el:
             count_el += 1
-    print(f'цифра в числах встречается {count_el} раз')
-
-
-count_num_2()
 
 
 def count_num_1():
+    """
+    python -m timeit -n 1000 -s "import less4_1" "less4_1.count_num_1()"
+    1000 loops, best of 5: 2.05 usec per loop
+
+    """
     el = 3
     num_list = [233, 67, 8, 330, 13]
     count_el = 0
@@ -25,7 +30,8 @@ def count_num_1():
             if num_list[i] % 10 == el:
                 count_el += 1
             num_list[i] //= 10
-    print(f'цифра в числах встречается {count_el} раз')
 
 
-count_num_2()
+"""
+Вариант со строкой гораздо быстрее математических вычислений
+"""
