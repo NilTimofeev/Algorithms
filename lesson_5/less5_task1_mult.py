@@ -11,6 +11,7 @@
 # digits = '0123456789ABCDEF'
 from collections import deque
 
+
 def mult_hex(x, y):
     HEX_NUM = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
                'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15,
@@ -47,7 +48,7 @@ def mult_hex(x, y):
             transfer = res // 16
 
     if transfer:
-            result.appendleft(HEX_NUM[transfer])
+        result.appendleft(HEX_NUM[transfer])
 
     return list(result)
 
@@ -55,7 +56,6 @@ def mult_hex(x, y):
 a = list('1C52')
 b = list('891')
 # print(a, b)
-
 
 
 print(*a, '*', *b, '=', *mult_hex(a, b))

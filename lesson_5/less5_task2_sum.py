@@ -36,4 +36,3 @@ if digit:
     result.append('1')
 result.reverse()
 print(result)
-
