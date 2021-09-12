@@ -1,15 +1,13 @@
 import sys
 import random
-el_list = []
-
 
 
 def show_size(elements):
     memory = 0
-    for el in elements:
-        print(f'type - {el.__class__}, size - {sys.getsizeof(el)}, odj - {el}')
-        memory += sys.getsizeof(el)
-    print(f'Memory - {memory}')
+    for el in elements.items():
+        print('type - {},\t size - {},\t {} = {}'.format(el[1].__class__, sys.getsizeof(el[1]), el[0], el[1]))
+        memory += sys.getsizeof(el[1])
+    print(f'Memory = {memory}')
 
 
 def func_1():
@@ -24,11 +22,6 @@ def func_1():
     str_res = chr(random.randint(ord(str_l), ord(str_r) + 1))
     print(f'int - {int_res}, float - {fl_res}, str - {str_res}')
 
-    print('\n', locals())
-    print('\n', dir())
-
-    for el in locals().items():
-        #print(f'type - {el[1].__class__}, size - {sys.getsizeof(el[1])}, odj - {el[0]}')
-        print('type - {:15s}, size - {}, odj - {}'.format(el[1].__class__, sys.getsizeof(el[1]), el[0]))
+    show_size(locals())
 
 func_1()
