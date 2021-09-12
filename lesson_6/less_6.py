@@ -1,65 +1,34 @@
 import sys
-print(sys.version, sys.platform)
-# 3.9.6 (tags/v3.9.6:db3ff76, Jun 28 2021, 15:26:21) [MSC v.1929 64 bit (AMD64)] win32
-
-# 8. Посчитать, сколько раз встречается определенная цифра в введенной последовательности чисел.
-# Количество вводимых чисел и цифра, которую необходимо посчитать, задаются вводом с клавиатуры.
-
+import random
 el_list = []
 
 
+
 def show_size(elements):
+    memory = 0
     for el in elements:
         print(f'type - {el.__class__}, size - {sys.getsizeof(el)}, odj - {el}')
-    # if hasattr(x, '__iter__'):
-    #     if hasattr(x, '__items__'):
-    #         for xx in x.items():
-    #             show_size(x, level + 1)
-    #     elif not isinstance(x, str):
-    #         for xx in x:
-    #             show_size(x, level + 1)
+        memory += sys.getsizeof(el)
+    print(f'Memory - {memory}')
 
 
-def count_num():
-    n = 1 #int(input('сколько чисел введем?: '))
-    el = 3 #int(input('какую цифру посчитать?: '))
-    count_el = 0
-    for i in range(n):
-        num = 34563213 #int(input('введите число: '))
-        while num > 0:
-            if num % 10 == el:
-                count_el += 1
-            num //= 10
-    print(f'цифра в числах встречается {count_el} раз')
+def func_1():
+    int_l = 1
+    int_r = 10
+    fl_l = 1.0
+    fl_r = 10.0
+    str_l = 'a'
+    str_r = 'f'
+    int_res = random.randint(int_l, int_r)
+    fl_res = random.uniform(fl_l, fl_r)
+    str_res = chr(random.randint(ord(str_l), ord(str_r) + 1))
+    print(f'int - {int_res}, float - {fl_res}, str - {str_res}')
 
-    print(locals().keys())
-    for el_name in dir():
-        if not el_name.startswith('__'):
-            el_list.append(locals()[el_name])
-    show_size(el_list)
+    print('\n', locals())
+    print('\n', dir())
 
+    for el in locals().items():
+        #print(f'type - {el[1].__class__}, size - {sys.getsizeof(el[1])}, odj - {el[0]}')
+        print('type - {:15s}, size - {}, odj - {}'.format(el[1].__class__, sys.getsizeof(el[1]), el[0]))
 
-def count_num_2():
-    n = 1 #int(input('сколько чисел введем?: '))
-    el = '3' #int(input('какую цифру посчитать?: '))
-    count_el = 0
-    for i in range(n):
-        num = '34563213' #int(input('введите число: '))
-        while num > 0:
-            if num % 10 == el:
-                count_el += 1
-            num //= 10
-    print(f'цифра в числах встречается {count_el} раз')
-
-    print(locals().keys())
-    for el_name in dir():
-        if not el_name.startswith('__'):
-            el_list.append(locals()[el_name])
-    show_size(el_list)
-
-
-
-
-
-count_num()
-
+func_1()
