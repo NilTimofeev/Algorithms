@@ -1,18 +1,17 @@
 # 2. Отсортируйте по возрастанию методом слияния одномерный вещественный массив, заданный случайными числами на
 # промежутке [0; 50). Выведите на экран исходный и отсортированный массивы.
 
-from random import  randint
-# функция слияния двух отсортированных списков
+from random import randint
 
 
 def split_and_merge_list(arr):
     middle = len(arr) // 2
-    left = arr[:middle]     # деление массива на два примерно равной длины
+    left = arr[:middle]
     right = arr[middle:]
 
-    if len(left) > 1: # если длина 1-го списка больше 1, то делим дальше
+    if len(left) > 1:
         left = split_and_merge_list(left)
-    if len(right) > 1: # если длина 2-го списка больше 1, то делим дальше
+    if len(right) > 1:
         right = split_and_merge_list(right)
 
     result = []

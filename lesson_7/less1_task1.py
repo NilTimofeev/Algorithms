@@ -11,13 +11,15 @@ arr = [randint(-100, 100) for i in range(10)]
 print(arr)
 
 
-def less6_task1(array):
+def bubble(array):
 
-    for i in range(len(array) - 1):
-        for j in range(len(array) - 1 - i):
+    # for i in range(len(array) - 1):
+    #     for j in range(len(array) - 1 - i):
+    for i in range(len(array) - 1, 0, -1):
+        for j in range(i):
             if array[j] < array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
 
 
-less6_task1(arr)
+bubble(arr)
 print(arr)
