@@ -5,6 +5,8 @@
 # Если кто-то хочет жать руку другому, то проверяем не жал ли другой руку первому. И не жмет ли он руку себе сам
 # Таким образом создаем ребра
 
+from functools import reduce
+
 n = 5
 gr = {i: [0] * n for i in range(n)}
 
@@ -15,4 +17,6 @@ for i in range(n):
         # и не жмет ли он руку себе сам
         if not gr[j][i] and not gr[i][j] and i != j:
             gr[i][j] = 1
+
 print(*gr.values(), sep='\n')
+print(reduce(lambda x, y: x + y, gr))

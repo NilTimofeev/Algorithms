@@ -39,13 +39,11 @@ def dijkstra(graph, start):
 
     ways = []
     for i in range(length):
-        j = i
         way = [i]
-        while parent[j] != -1:
-            way.append(parent[j])
-            j = parent[j]
-        ways.append(way)
-    return cost, ways
+        while parent[i] != -1:
+            way.append(parent[i])
+            i = parent[i]
+        ways.append(way) if cost[i] < float('inf') else ways.append(['no way'])
 
     return cost, ways
 
