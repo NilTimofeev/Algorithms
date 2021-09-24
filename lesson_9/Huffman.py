@@ -1,24 +1,4 @@
-# from collections import Counter
-#
-# st = 'beep boop beer!'
-# # cnt = Counter(st)
-# # print(cnt)
-#
-#
-# class MyNode:
-#
-#     def __init__(self, data, left=None, right=None):
-#         self.data = data
-#         self.left = left
-#         self.right = right
-#
-#
-# def tree(string):
-#     cnt = Counter(string)
-#
-#     while len(cnt) != 1:
-#         empty_node = MyNode(None)
-#
+
 from collections import Counter
 
 
